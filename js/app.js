@@ -16,7 +16,7 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-    likedPostsId.plus(id); 
+    likedPostsId.push(id); 
     showPosts(posts);
 };
 
@@ -54,7 +54,6 @@ const switchTab = (id) => {
 const createPost = (post) => {
     const image = post.image;
     const userImage = post.userImage
-    console.log(post)
     const div = document.createElement( "article" );
     div.classList.add( "post" );
     div.innerHTML = `
@@ -123,9 +122,9 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                          ${post.comments[0]?.user}
                       </a>
-                      ${post.comments?.text}
+                      ${post.comments[0]?.text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
